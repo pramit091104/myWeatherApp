@@ -1,0 +1,371 @@
+:root {
+  --background: #f1f5fe;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --primary: #0ea5e9;
+  --primary-foreground: #f8fafc;
+  --secondary: #ecf6ff;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0ea5e9;
+  --radius: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #D3E4FD, #0EA5E9) fixed;
+  color: var(--foreground);
+
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-cloud-sun {
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.weather-glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Search bar */
+.search-container {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+#search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.search-input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.75rem 0 2.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.search-button {
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0284c7;
+}
+
+.location-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.location-button:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.loader-icon {
+  animation: spin 1s linear infinite;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Error */
+.error-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-message {
+  color: var(--destructive);
+  margin-bottom: 0.5rem;
+}
+
+/* Weather display */
+.weather-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.current-weather-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .current-weather-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.weather-location {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.weather-date {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.weather-temp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.weather-temp {
+  font-size: 3rem;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+}
+
+.temp-unit {
+  font-size: 0.875rem;
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  color: #64748b;
+}
+
+.feels-like {
+  color: #64748b;
+}
+
+.weather-details {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.weather-icon {
+  font-size: 4rem;
+  margin-right: 1rem;
+}
+
+.weather-desc {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+.weather-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .weather-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weather-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.weather-stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.weather-stat-value {
+  font-weight: 700;
+}
+
+/* AQI */
+.aqi-container {
+  padding: 1.5rem;
+}
+
+.aqi-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.aqi-level {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.aqi-good {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.aqi-moderate {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.aqi-unhealthy {
+  background-color: #fed7aa;
+  color: #9a3412;
+}
+
+.aqi-very-unhealthy {
+  background-color: #fecaca;
+  color: #991b1b;
+}
+
+.aqi-hazardous {
+  background-color: #e879f9;
+  color: #831843;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

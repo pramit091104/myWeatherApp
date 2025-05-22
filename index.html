@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+    <meta name="description" content="Get your local weather forecast and conditions" />
+    <meta name="author" content="Lovable" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="container">
+      
+      <!-- App Header -->
+      <header class="header">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-cloud-sun">
+            <path d="M12 2v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="M20 12h2"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+            <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"></path>
+            <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"></path>
+          </svg>
+          <h1>Weather Forecast</h1>
+        </div>
+      </header>
+
+      <!-- Search Bar -->
+      <div class="search-container weather-glass">
+        <form id="search-form">
+          <div class="search-input-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search location..." class="search-input">
+          </div>
+          <button type="submit" class="search-button">Search</button>
+          <button type="button" id="location-button" class="location-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Loading state -->
+      <div id="loading" class="loading-container hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="loader-icon">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+        </svg>
+        <p>Loading weather data...</p>
+      </div>
+
+      <!-- Error state -->
+      <div id="error" class="error-container weather-card hidden">
+        <p class="error-message"></p>
+        <p>Please try searching for a different location.</p>
+      </div>
+
+      <!-- Weather data -->
+      <div id="weather-container" class="weather-container hidden">
+        <!-- Current weather -->
+        <div id="current-weather" class="weather-card"></div>
+        
+        <!-- AQI data -->
+        <div id="aqi-container" class="weather-card hidden"></div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Weather data provided by WeatherAPI.com</p>
+        <p>&copy; <span id="current-year"></span> Weather Forecast App</p>
+      </footer>
+    </div>
+
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
