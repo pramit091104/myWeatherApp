@@ -3,6 +3,7 @@
 A modern, responsive weather application that provides current weather conditions, 5-day forecasts, and air quality information for any location worldwide.
 
 
+
 ## ✨ Features
 
 - 🌍 **Current Weather**: Real-time weather conditions for any location
