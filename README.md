@@ -2,7 +2,6 @@
 
 A modern, responsive weather application that provides current weather conditions, 5-day forecasts, and air quality information for any location worldwide.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
 
